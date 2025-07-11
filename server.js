@@ -4,7 +4,11 @@ const http = require('http');
 
 const PORT = 3001;
 
-const server = http.createServer();
+const server = http.createServer((req, res) => {
+  res.writeHead(200);
+  res.end("WebSocket server is running\n");
+});
+
 const wss = new WebSocketServer({ server });
 
 const rooms = {};
